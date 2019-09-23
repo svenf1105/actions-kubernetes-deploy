@@ -27,5 +27,5 @@ else
   gcloud container clusters get-credentials --project="$project" --zone="$zone" "$cluster" || exit
  fi
 
-echo "Running: kubectl $@" >&2
-exec kubectl "$@"
+echo "Running: kubernetes-deploy $@" >&2
+exec kubernetes-deploy "$@"
