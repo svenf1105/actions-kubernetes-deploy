@@ -18,7 +18,10 @@ RUN apt-get update && apt-get -y --no-install-recommends install curl ruby \
   && rm docker-${DOCKERVERSION}.tgz \
   && rm -rf /var/lib/apt/lists/*
 
+RUN /builder/google-cloud-sdk/bin/gcloud -q components install kubectl
+
 RUN gem install kubernetes-deploy
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY kubectl.bash /builder/kubectl.bash
+
+ENTRYPOINT ["/builder/kubectl.bash"]
