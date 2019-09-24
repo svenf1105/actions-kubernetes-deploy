@@ -27,7 +27,6 @@ else
   gcloud container clusters get-credentials --project="$project" --zone="$zone" "$cluster" || exit
  fi
 
-REVISION=echo $GITHUB_SHA | awk '{print substr($0,0,6)}'
-
+REVISION=echo $GITHUB_SHA | cut -c1-5
 echo "Running: kubernetes-deploy $@" >&2
 exec kubernetes-deploy "${@}"
