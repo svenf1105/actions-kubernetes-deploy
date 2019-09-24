@@ -28,4 +28,6 @@ RUN gem2.6 install kubernetes-deploy
 
 COPY kubectl.bash /builder/kubectl.bash
 
+RUN chmod +x /builder/kubectl.bash
+
 ENTRYPOINT ["/builder/kubectl.bash"]
