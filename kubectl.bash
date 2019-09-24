@@ -28,4 +28,4 @@ else
  fi
 
 echo "Running: kubernetes-deploy $@" >&2
-exec kubernetes-deploy "$@"
+exec kubernetes-deploy "${@}"
